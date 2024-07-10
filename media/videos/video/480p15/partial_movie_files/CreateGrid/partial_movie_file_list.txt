@@ -1,0 +1,6 @@
+# This file is used internally by FFMPEG.
+file 'file:/Users/seymour-butts/PycharmProjects/minesweeper/media/videos/video/480p15/partial_movie_files/CreateGrid/1185818338_1552218062_2849199848.mp4'
+file 'file:/Users/seymour-butts/PycharmProjects/minesweeper/media/videos/video/480p15/partial_movie_files/CreateGrid/624642324_2260153141_397369165.mp4'
+file 'file:/Users/seymour-butts/PycharmProjects/minesweeper/media/videos/video/480p15/partial_movie_files/CreateGrid/624642324_2868637077_859132466.mp4'
+file 'file:/Users/seymour-butts/PycharmProjects/minesweeper/media/videos/video/480p15/partial_movie_files/CreateGrid/624642324_707723799_859132466.mp4'
+file 'file:/Users/seymour-butts/PycharmProjects/minesweeper/media/videos/video/480p15/partial_movie_files/CreateGrid/624642324_784179552_1189676743.mp4'
