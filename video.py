@@ -266,6 +266,55 @@ class CreateMinefieldFilm3(Scene):
 
         return squares, textEle, coords
 
+class CreateMinefieldFilm4(Scene):
+
+
+
+    def construct(self):
+
+        text ='''def make_random_move(self):
+        """
+        Returns a move to make on the Minesweeper board.
+        Should choose randomly among cells that:
+            1) have not already been chosen, and
+            2) are not known to be mines
+        """
+
+        # If the knowledge base is not empty we will find the cell with the
+        # lowest probability of being a mine
+        if len(self.knowledge)!=0:
+            # Initialize the lowest probability of a cell being a mine as 1
+            minProb = 1
+
+            # bestMove will be used to store the best (i.e., lowest probability) move found
+            bestMove = None
+            for sentence in self.knowledge:
+                # If the sentence has cells and has a lower mine probability than the current minimum
+                if len(sentence.cells) != 0 and sentence.count / len(sentence.cells) < minProb:
+
+                    # Select a random cell from this sentence
+                    bestMove = random.choice(list(sentence.cells))
+
+                    # Make sure that the selected cell has not already been chosen or marked as a mine
+                    while bestMove in self.moves_made or bestMove in self.mines:
+                        bestMove = random.choice(list(sentence.cells))
+
+            # If a best move was found among the knowledge, return it
+            if bestMove is not None:
+                return bestMove
+
+         # If no move can be inferred from the knowledge base, then a random cell is selected
+        for i in range(self.height):
+            for j in range(self.width):
+                if (i, j) not in self.moves_made and (i, j) not in self.mines:
+                    return i, j'''
+        rendered_code = Code(code=text, tab_width=4, background="window",
+                             language="Python", font="Monospace", font_size=12, style=Code.styles_list[10])
+        self.play(Write(rendered_code))
+        self.wait(10)
+
+
+
 class CreateMinefieldFilm2(Scene):
     def create_game(self):
         self.minesweeper = Minesweeper(height=4, width=4, minesLis=[[2, 1],[0,2],[2,2]])
@@ -785,9 +834,9 @@ class Minesweeper():
         return squares, textEle, coords
 
 
-with tempconfig({"quality": "low_quality", "disable_caching": True}):
-    # scene = CreateMinefieldFilm1()
-    # scene.render()
+with tempconfig({"quality": "high_quality", "disable_caching": True}):
+    scene = CreateMinefieldFilm4()
+    scene.render()
 
-    scene1 = CreateMinefieldFilm3()
-    scene1.render()
+    # scene1 = CreateMinefieldFilm3()
+    # scene1.render()
